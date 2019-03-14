@@ -9,6 +9,12 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
+const mapStateToProps = state => {
+    return {
+        current_article_error: state.current_article_error
+    }
+};
+
 class ConnectedForm extends Component {
     constructor() {
         super();
@@ -46,6 +52,9 @@ class ConnectedForm extends Component {
                         value={title}
                         onChange={this.handleChange}
                     />
+                    {this.props.current_article_error &&
+                        <p>There was forbidden word in your title!</p>
+                    }
                 </div>
                 <button type="submit" className="btn btn-success btn-lg">
                     SAVE
@@ -55,6 +64,6 @@ class ConnectedForm extends Component {
     }
 }
 
-const Form = connect(null, mapDispatchToProps)(ConnectedForm);
+const ArticlesForm = connect(mapStateToProps, mapDispatchToProps)(ConnectedForm);
 
-export default Form;
+export default ArticlesForm;

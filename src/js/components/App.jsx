@@ -1,17 +1,33 @@
 import React from "react";
-import List from "./List";
-import Form from "./Form";
+import ArticlesList from "./ArticlesList";
+import AuthorsList from "./AuthorsList";
+import ArticlesForm from "./ArticlesForm";
+import AuthorsForm from "./AuthorsForm";
 
 const App = () => (
-    <div className="row mt-5">
-        <div className="col-md-4 offset-md-1">
-            <h2>Articles</h2>
-            <List />
+    <div>
+        <div className="row mt-5">
+            <div className="col-md-4 offset-md-1">
+                <h2>Articles</h2>
+                <ArticlesList/>
+            </div>
+
+            <div className="col-md-4 offset-md-1">
+                <h2>Add a new article</h2>
+                <ArticlesForm/>
+            </div>
         </div>
 
-        <div className="col-md-4 offset-md-1">
-            <h2>Add a new article</h2>
-            <Form />
+        <div className="row mt-5">
+            <div className="col-md-4 offset-md-1">
+                <h2>Authors</h2>
+                <AuthorsList/>
+            </div>
+
+            <div className="col-md-4 offset-md-1">
+                <h2>Add new author</h2>
+                <AuthorsForm/>
+            </div>
         </div>
     </div>
 );

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 const mapStateToProps = state => {
-    return { articles: state.articles };
+    return { articles: state.articles.articles };
 };
 
 const ConnectedList = ({ articles }) => (
@@ -21,6 +21,6 @@ ConnectedList.propTypes = {
     title: PropTypes.string
 };
 
-const List = connect(mapStateToProps)(ConnectedList);
+const ArticlesList = connect(mapStateToProps)(ConnectedList);
 
-export default List;
+export default ArticlesList;
