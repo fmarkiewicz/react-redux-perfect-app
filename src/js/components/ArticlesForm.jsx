@@ -11,7 +11,7 @@ function mapDispatchToProps(dispatch) {
 
 const mapStateToProps = state => {
     return {
-        current_article_error: state.current_article_error
+        current_article_error: state.articles.current_article_error
     }
 };
 
@@ -41,6 +41,7 @@ class ConnectedForm extends Component {
 
     render() {
         const { title } = this.state;
+
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">

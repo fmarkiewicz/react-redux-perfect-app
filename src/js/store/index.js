@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import articleReducer from "../reducers/articleReducer";
 import authorReducer from "../reducers/authorReducer";
 import { forbiddenWordsMiddleware } from "../middleware/forbiddenWordsMiddleware";
+import { handleAuthorsMiddleware } from "../middleware/handleAuthorsMiddleware";
 
 const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -12,8 +13,10 @@ const rootReducer = combineReducers({
 
 const store = createStore(
     rootReducer,
-    // applyMiddleware(forbiddenWordsMiddleware),
-    storeEnhancers(applyMiddleware(forbiddenWordsMiddleware))
+    storeEnhancers(applyMiddleware(
+        forbiddenWordsMiddleware,
+        handleAuthorsMiddleware
+        ))
 );
 
 export default store;
