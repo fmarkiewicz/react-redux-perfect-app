@@ -14,15 +14,8 @@ function authorReducer(state = initialState, action) {
         }
 
         case DELETE_AUTHOR: {
-            const index = state.authors.findIndex( author => author.name === action.payload.name);
-
-            const authors = [
-                ...state.authors.slice(0, index),
-                ...state.authors.slice(index + 1)
-            ];
-
             return Object.assign({}, state, {
-                authors: authors
+                authors: action.payload
             })
         }
 

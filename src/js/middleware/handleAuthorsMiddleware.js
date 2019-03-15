@@ -12,6 +12,13 @@ export function handleAuthorsMiddleware({getState, dispatch}) {
 
                 if (index === -1) {
                     return dispatch({type: AUTHOR_NOT_FOUND, payload: {author_deletion_failure: true}});
+                } else {
+                    const authors = [
+                        ...oldAuthors.slice(0, index),
+                        ...oldAuthors.slice(index + 1)
+                    ];
+
+                    return next({type: DELETE_AUTHOR, payload: authors})
                 }
 
             }
